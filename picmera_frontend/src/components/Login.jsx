@@ -2,9 +2,13 @@ import React from "react";
 import GoogleLogin from "react-google-login";
 import logo from "../assets/Picmera.png";
 import shareVideo from "../assets/share.mp4";
+import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 
+import { client } from "../client";
+
 const Login = () => {
+  const navigate = useNavigate();
   const responseGoogle = (response) => {
     localStorage.setItem("user", JSON.stringify(response.profileObj));
 
@@ -14,8 +18,12 @@ const Login = () => {
       _id: googleId,
       _type: "user",
       userName: name,
-      imageUrl: imageUrl,
+      image: imageUrl,
     };
+
+    client.createIfNotExists(doc).then(() => {
+      navigate("/", { replace: true });
+    });
   };
   return (
     <div className="flex justify-start items-center flex-col h-screen">
