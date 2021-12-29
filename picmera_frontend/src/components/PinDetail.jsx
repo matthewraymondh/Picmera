@@ -161,7 +161,7 @@ const PinDetail = ({ user }) => {
       </div>
       {pins?.length > 0 ? (
         <>
-          <h2 className="text-center font-bold text-2x mt-8 mb-4">
+          <h2 className="text-center font-extrabold text-2x mt-8 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
             More like this
           </h2>
           <MasonryLayout pins={pins} />

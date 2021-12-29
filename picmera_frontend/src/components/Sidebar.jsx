@@ -4,20 +4,12 @@ import { RiHomeFill } from "react-icons/ri";
 import { IoIosArrowForward } from "react-icons/io";
 
 import logo from "../assets/Picmera.png";
+import { categories } from "../utils/data";
 
 const isNotActiveStyle =
   "flex items-center px-5 gap-3 text-gray-400 hover:text-white transition-all duration-200 ease-in-out capitalize";
 const isActiveStyle =
-  "flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize";
-
-const categories = [
-  { name: "Animals" },
-  { name: "Wallpapers" },
-  { name: "Photography" },
-  { name: "Gaming" },
-  { name: "Coding" },
-  { name: "Other" },
-];
+  "flex items-center px-5 gap-3 font-extrabold border-r-2 border-white transition-all duration-200 ease-in-out capitalize";
 
 const Sidebar = ({ user, closeToggle }) => {
   const handleCloseSidebar = () => {
@@ -33,7 +25,7 @@ const Sidebar = ({ user, closeToggle }) => {
         >
           <img src={logo} alt="logo" className="w-full" />
         </Link>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 text-white">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -56,6 +48,11 @@ const Sidebar = ({ user, closeToggle }) => {
               onClick={handleCloseSidebar}
               key={category.name}
             >
+              <img
+                src={category.image}
+                className="w-8 h-8 rounded-lg shadow-sm"
+                alt="category"
+              />
               {category.name}
             </NavLink>
           ))}
