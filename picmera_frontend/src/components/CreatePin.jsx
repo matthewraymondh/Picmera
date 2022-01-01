@@ -86,7 +86,7 @@ const CreatePin = ({ user }) => {
           Please fill in all the fields.
         </p>
       )}
-      <div className="flex lg:flex-row flex-col justify-center items-center bg-gray-500 lg:p-5 p-3 lg:w-4/5 w-full">
+      <div className="flex lg:flex-row flex-col justify-center items-center bg-zinc-500 lg:p-5 p-3 lg:w-4/5 w-full">
         <div className="bg-secondaryColor p-3 flex flex-0.7 w-full">
           <div className="flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420">
             {loading && <Spinner />}
@@ -135,10 +135,10 @@ const CreatePin = ({ user }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Add your title here"
-            className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2 bg-gray-500"
+            className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2 bg-zinc-500"
           />
           {user && (
-            <div className="flex gap-2 my-2 items-center bg-gray-500 rounded-lg">
+            <div className="flex gap-2 my-2 items-center bg-zinc-500 rounded-lg">
               <img
                 src={user.image}
                 className="w-10 h-10 rounded-full"
@@ -152,14 +152,14 @@ const CreatePin = ({ user }) => {
             value={about}
             onChange={(e) => setAbout(e.target.value)}
             placeholder="What is your pin about"
-            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2 bg-gray-500"
+            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2 bg-zinc-500"
           />
           <input
             type="url"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             placeholder="Add a destination link"
-            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2 bg-gray-500"
+            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2 bg-zinc-500"
           />
           <div className="flex flex-col">
             <div>
@@ -168,7 +168,7 @@ const CreatePin = ({ user }) => {
               </p>
               <select
                 onChange={(e) => setCategory(e.target.value)}
-                className="outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer bg-gray-500"
+                className="outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer bg-zinc-500"
               >
                 <option value="other" className="bg-white">
                   Select Category

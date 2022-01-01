@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { GoogleLogout } from "react-google-login";
 import { AiOutlineLogout } from "react-icons/ai";
+import { BsCloudHaze1 } from "react-icons/bs";
 import { useNavigate, useParams } from "react-router-dom";
 import { client } from "../client";
 import {
@@ -11,13 +12,10 @@ import {
 import MasonryLayout from "./MasonryLayout";
 import Spinner from "./Spinner";
 
-const randomImage =
-  "https:/source.unsplash.com/1600x900/?nature,photography,technology";
-
 const activeBtnStyles =
-  "bg-cyan-500 text-purple-600 font-bold p-2 rounded-full w-20 outline-none";
+  "bg-white text-cyan-400 font-bold p-2 rounded-full w-20 outline-none";
 const notActiveBtnStyles =
-  "bg-primary mr-4 text-white font-bold p-2 rounded-full w-20 outline-none";
+  "bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-none";
 
 const UserProfile = () => {
   const [user, setUser] = useState(null);
@@ -26,6 +24,11 @@ const UserProfile = () => {
   const [activeBtn, setActiveBtn] = useState("Created");
   const navigate = useNavigate();
   const { userId } = useParams();
+
+  const User =
+    localStorage.getItem("user") !== "undefined"
+      ? JSON.parse(localStorage.getItem("user"))
+      : localStorage.clear();
 
   useEffect(() => {
     const query = userQuery(userId);
@@ -67,7 +70,7 @@ const UserProfile = () => {
         <div className="relative flex flex-col mb-7">
           <div className="flex flex-col justify-center items-center">
             <img
-              src={randomImage}
+              src="https://source.unsplash.com/1600x900/?nature,photography,technology"
               className="w-full h-370 2xl:h-510 shadow-lg object-cover"
               alt="banner pic"
             />
@@ -76,11 +79,11 @@ const UserProfile = () => {
               src={user.image}
               alt="user-pic"
             />
-            <h1 className="font-bold text-3xl text-center mt-3 text-white">
+            <h1 className="font-bold text-3xl text-center mt-3 ">
               {user.userName}
             </h1>
             <div className="absolute top-0 z-1 right-0 p-2">
-              {userId === user._id && (
+              {userId === User._id && (
                 <GoogleLogout
                   clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
                   render={(renderProps) => (
